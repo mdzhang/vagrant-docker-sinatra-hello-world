@@ -1,5 +1,5 @@
 require 'sinatra'
 
 get '/' do
-  'Hello world! (from Docker)'
+  'Hello world! (from Vagrant + Docker)'
 end

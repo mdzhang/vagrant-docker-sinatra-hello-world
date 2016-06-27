@@ -1,3 +1,3 @@
 tap 'caskroom/cask'
 cask 'virtualbox'
-cask 'dockertoolbox'
+cask 'vagrant'

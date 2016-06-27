@@ -22,21 +22,16 @@ A simple "Hello World" app using Docker, Sinatra, rbenv and bundler.
 - setup project
 
     ```
-    echo 'eval "$(docker-machine env)"' >> $HOME/.bashrc
-    bash --login '/Applications/Docker/Docker Quickstart Terminal.app/Contents/Resources/Scripts/start.sh'
-    source  $HOME/.bashrc
-
     cd ~/Code
-    git clone git@github.com:mdzhang/docker-sinatra-hello-world.git
-    cd docker-sinatra-hello-world
-    docker build -t docker-sinatra-hello-world .
-    docker run -d -p 4567:4567 -v $(pwd):/docker-sinatra-hello-world docker-sinatra-hello-world
+    git clone git@github.com:mdzhang/vagrant-docker-sinatra-hello-world.git
+    cd vagrant-docker-sinatra-hello-world
+    vagrant up
     ```
 
 - view app
 
     ```
-    open http://$(docker-machine ip):4567
+    open localhost:4567
     ```
 
 ## Resources
@@ -46,3 +41,5 @@ A simple "Hello World" app using Docker, Sinatra, rbenv and bundler.
 - http://sourabhbajaj.com/mac-setup/Docker/README.html
 - https://docs.docker.com/engine/getstarted/step_two/
 - https://docs.docker.com/v1.10/engine/userguide/containers/dockervolumes/
+- https://www.vagrantup.com/docs/getting-started/project_setup.html
+- https://atlas.hashicorp.com/vagrant

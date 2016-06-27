@@ -68,8 +68,8 @@ RUN bundle install
 
 # Copy over application files
 # This will invalidate the Docker cache, so keep time consuming commands after this point to a minimum
-COPY . /docker-sinatra-hello-world
-WORKDIR /docker-sinatra-hello-world
+COPY . /app
+WORKDIR /app
 RUN rbenv local $(cat .ruby-version)
 
 # Restore dash as default shell for performance reasons

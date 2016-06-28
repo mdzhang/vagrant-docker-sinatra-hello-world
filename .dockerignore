@@ -2,6 +2,7 @@
 .vagrant
 .gitignore
 Brewfile
+Makefile
 README.md
 Vagrantfile
 site.sublime-project

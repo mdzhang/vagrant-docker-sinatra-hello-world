@@ -1,0 +1,27 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  cache_directories:
+    - "~/docker"
+
+  override:
+    - docker info
+    # CircleCI cannot cache Docker images https://circleci.com/docs/docker/#caching-docker-layers
+    # so we use a manual workaround below
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
+    - docker build -t hello-world .
+    - mkdir -p ~/docker; docker save hello-world > ~/docker/image.tar
+
+test:
+  override:
+    - docker images
+    - docker run -d -p 4567:4567 hello-world
+    - docker ps -a
+    - docker inspect hello-world
+    - docker inspect --format "{{.Id}}" hello-world
+    # - docker exec hello-world make test
+    # CircleCI does not support docker exec https://circleci.com/docs/docker/#docker-exec
+    - sudo lxc-attach -n "$(docker inspect --format "{{.Id}}" hello-world)" -- bash -c make test
+

@@ -2,6 +2,8 @@
 
 A simple "Hello World" app using Docker, Sinatra, rbenv and bundler.
 
+[![CircleCI](https://circleci.com/gh/mdzhang/vagrant-docker-sinatra-hello-world.svg?style=svg)](https://circleci.com/gh/mdzhang/vagrant-docker-sinatra-hello-world)
+
 ## Installation
 
 ### OS X

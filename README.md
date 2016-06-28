@@ -28,6 +28,17 @@ A simple "Hello World" app using Docker, Sinatra, rbenv and bundler.
     vagrant up
     ```
 
+    - **N.B**: I encountered an issue after installing Docker on Ubuntu 14.14 with mounting and guest permissions. You may have to
+
+        ```
+        vagrant plugin install vagrant-vbguest
+        vagrant ssh
+        sudo apt-get install linux-headers-$(uname -r)
+        # Ctrl-D to end session
+        vagrant reload --provision
+        ```
+
+
 - view app
 
     ```
@@ -43,3 +54,8 @@ A simple "Hello World" app using Docker, Sinatra, rbenv and bundler.
 - https://docs.docker.com/v1.10/engine/userguide/containers/dockervolumes/
 - https://www.vagrantup.com/docs/getting-started/project_setup.html
 - https://atlas.hashicorp.com/vagrant
+- https://www.getconvey.com/devblog/mounting-errors-during-installing-docker-on-an-ubuntutrusty64-vagrant-vm/
+
+## TODO
+
+- .dockerignore is not working with Vagrant as we'd hope
